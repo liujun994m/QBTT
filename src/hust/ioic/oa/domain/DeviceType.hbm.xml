@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping  package="hust.ioic.oa.domain">
+
+	<class name="DeviceType" table="t_deviceType" >
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="name"  type="string"/>
+		<property name="manufacture"  type="string"/>
+		<property name="specification"  type="string"/>
+		<property name="address"  type="string"/>
+		<property name="image"  type="string"/>
+		<property name="showNum"  type="integer"/>
+		<property name="showIndex" type="integer"/>
+		<property name="showConfig" type="string"/>
+		<property name="remark" type="string"/>
+        <property name="enprNo"  type="string"/>
+		<!-- devices属性，本类与Device类的一对多关系 -->
+		<set name="devices" cascade="delete" inverse="true" >
+			<key column="deviceTypeID"></key>
+			<one-to-many class="Device"/>
+		</set>
+
+		
+
+	</class>
+</hibernate-mapping>

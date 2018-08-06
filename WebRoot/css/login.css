@@ -1,0 +1,189 @@
+body{
+	/* margin: 0;
+	padding: 0;
+	font-family: sans-serif;   */
+filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#004574,endcolorstr=#175f8f,gradientType=0);
+		background: url(../images/login/login.gif) repeat;
+     
+ 
+      background-positon: 100%, 100%; 
+}
+A:link {
+	COLOR: #a9dcff; TEXT-DECORATION: none
+}
+
+A:visited {
+	COLOR: #a9dcff; TEXT-DECORATION: none
+}
+
+#container3 img{
+	width: 400px;
+	height: 100px;
+	position:absolute;
+	top:5%;;
+	left: 35%;
+}
+
+.login_form{
+	position: absolute;
+	top:28%;
+	left: 37%;
+	border: 2px solid #57A4DA;
+	border-radius: 15px;
+	width: 340px;
+}
+label {
+	display: inline-block;
+	min-width: 60px;
+	padding-left:15px;
+}
+label.error {
+	margin-left: 5px;
+	color: red;
+	font-size:10px;
+	padding-left:78px;
+}
+input.error { border: 1px solid red; }
+input{
+	width: 200px;
+	height: 30px;
+	font-size: 18px;
+}
+select{
+	font-size: 15px;
+	width: 200px;
+	height: 30px;
+	vertical-align:middle;
+
+}
+.submitform{
+	padding-left:60px;
+}
+p{
+	height: 40px;
+}
+.submitform input{
+	width: 200px;
+	height: 30px;
+	font-size: 20px;
+	background: #3AAAED;
+}
+.head{
+	font-size: 30px;
+	padding-left:10px;
+}
+.register{
+	top:0px;
+	left:25px;
+	font-size: 15px;
+	position: relative;
+}
+a{
+	text-decoration: none;
+	font-size: 120%;
+	padding-left: 2px;
+	color: #2C4EE7;
+}
+a:active{
+	color:#E42D0A;
+}
+
+#CenterArea {
+     position: absolute;  
+      top: 50%;  
+      left: 50%; 
+	background: url(../images/login/centera.gif) no-repeat;
+	height: 301px;
+	width: 682px;
+ margin-left: -341px;
+  margin-top: -180px; 
+
+
+}
+
+#LogoImg {
+	padding-left: 50px;
+	padding-top: 70px;
+	float: left;
+	width: 100%;
+}
+
+#LoginInfo {
+	padding-top: 10px;
+	padding-left: 120px;
+	float: left;
+	width: 360px;
+	height: 145px;
+}
+
+#LoginInfo tr {
+	height: 23px;
+}
+
+.Subject {
+	color: #a7c4d7;
+	font-family: "";
+	font-size: 11pt;
+	padding-left: 15px;
+	padding-right: 9px;
+	text-align: justify;
+}
+
+.TextField {
+	color: #1e71a8;
+	font-size: 12px;
+	width: 168px;
+	height: 19px;
+	padding-right: 9px;
+}
+
+.PopUpButton {
+	color: #1e71a8;
+	font-size: 12px;
+	width: 126px;
+	height: 19px;
+	padding-right: 9px;
+}
+
+#LoginBtn {
+	float: right;
+	padding-top: 30px;
+	padding-right: 270px;
+	width: 100px;
+}
+
+#ImgCode {
+	padding-top: 1px;
+	padding-left: 2px;
+	float: left;
+}
+
+.TextField_ImgCode {
+	color: #1e71a8;
+	font-size: 12px;
+	width: 105px;
+	height: 19px;
+}
+
+#CopyRight {
+	padding-top: 25px;
+	padding-left: 450px;
+	float: left;
+	color: #4c91bf;
+	font-size: 15px;
+}
+#CopyRight A:link {
+	COLOR: #4c91bf; TEXT-DECORATION: none
+}
+
+#CopyRight A:visited {
+	COLOR: #4c91bf; TEXT-DECORATION: none
+}
+
+#CopyRight A:active {
+	COLOR: #4c91bf; TEXT-DECORATION: none
+}
+
+#CopyRight A:hover {
+	COLOR: #4c91bf; TEXT-DECORATION: none;
+}

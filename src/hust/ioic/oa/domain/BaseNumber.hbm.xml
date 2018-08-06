@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping  package="hust.ioic.oa.domain">
+
+	<class name="BaseNumber" table="t_baseNumber">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="deviceId" type="integer"/>
+		<property name="deviceAddr" type="string"/>
+		<property name="collectionAddr" type="string"/>
+		<property name="centerAddr" type="string"/>
+		<property name="deviceData" type="big_decimal"/>
+		<property name="writeDate" type="timestamp"/>
+		<property name="moneyMonth" type="integer"/>
+		<property name="isMoney" type="integer"/>
+		<property  name="enprNo" type="string"/>
+				
+		
+
+
+
+	</class>
+</hibernate-mapping>

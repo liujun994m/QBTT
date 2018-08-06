@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping  default-lazy="false" package="hust.ioic.oa.domain">
+
+	<class name="TempCommandQueue" table="t_tempCommandQueue">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property lazy="false"  name="command" type="string"/>
+		<property lazy="false"  name="Operator" type="string"/>
+		<property lazy="false"  name="GenerateTime" type="timestamp"/>
+		<property lazy="false"  name="ExecuteTime" type="integer"/>
+		<property lazy="false"  name="protocalTYpe" type="integer"/>
+		<property lazy="false"  name="ContentValue1" type="string"/>
+		<property lazy="false"  name="ContentValue2" type="string"/>
+		<property lazy="false"  name="ContentValue3" type="string"/>
+		<property lazy="false"  name="ContentValue4" type="string"/>
+		<property lazy="false"  name="ContentValue5" type="string"/>
+		<property lazy="false"  name="ContentValue6" type="string"/>
+		<property lazy="false"  name="ContentValue7" type="string"/>
+		<property lazy="false"  name="ContentValue8" type="string"/>
+		<property lazy="false"  name="ContentValue9" type="string"/>
+		<property lazy="false"  name="ContentValue10" type="string"/>
+		<property lazy="false"  name="State" type="integer"/>
+		<property lazy="false"  name="enprNo" type="string"/>
+		<property lazy="false"  name="retryIntervalTime" type="integer"/>
+		<property lazy="false"  name="retryTimes" type="integer"/>
+		<property lazy="false"  name="startExeTime" type="timestamp"/>
+		<property lazy="false"  name="endExeTime" type="timestamp"/>
+		<property lazy="false"  name="port" type="string"/>
+		<property lazy="false"  name="ip" type="string"/>
+		<property lazy="false"  name="isLinkedLastCmd" type="integer"/>
+		<property lazy="false"  name="hashCode" type="integer"/>
+		
+
+
+
+	</class>
+</hibernate-mapping>

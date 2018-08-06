@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hust.ioic.oa.domain">
+
+	<class name="Port" table="t_port">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<property name="type" type="int" />
+		<property name="collectionPortConfig" type="string"></property>
+		<property name="managePortConfig" type="string"></property>
+		<property name="overtime" type="int"></property>
+		<property name="protocolType" type="int"></property>
+		<property name="remark" type="string"></property>
+		<property name="portNum"></property>
+		<property name="initCmd"></property>
+	
+		<!-- 多个端口对应一个服务器，port与sever为多对一关系 -->
+		 <many-to-one name="server" column="severId" class="Server" lazy="false"></many-to-one> 
+		 <!-- 企业与端口为多对多关系 -->
+		  <set name="enterprises" table="t_enterprise_port"  lazy="false">
+			<key column="portId"></key>
+			<many-to-many class="Enterprise" column="enterpriseId"></many-to-many>
+		</set> 
+        <set name="centers"   cascade="delete" lazy="false">
+			<key column="portId"></key>
+			<one-to-many class="Center" ></one-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

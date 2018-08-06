@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 配置为开发者模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 配置struts2的标签主题为simple -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- 配置扩展名为.action -->
+	<constant name="struts.action.extension" value="action"></constant>
+	<!-- struts考虑spring自动装箱 -->
+	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"
+		value="true" />
+
+
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<!-- 异常拦截器 -->
+			<interceptor name="errorInterceptor" class="hust.ioic.oa.utils.ErrorInterceptor" />
+			
+			<interceptor name="checkPrivilege"
+				class="hust.ioic.oa.utils.CheckPrivilegeInterceptor">
+			</interceptor>
+
+			<interceptor name="addDataSourceInterceptor"
+				class="hust.ioic.oa.utils.AddDataSourceInterceptor">
+			</interceptor>
+
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="errorInterceptor"></interceptor-ref>
+				<interceptor-ref name="checkPrivilege"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="loginUI">/WEB-INF/jsp/operatorAction/loginUI.jsp</result>
+			<result name="noPrivilegeError">/noPrivilege.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="errorMsg">/errorMsg.jsp</result>
+		</global-results>
+		
+	<!-- 	 <global-exception-mappings>
+                    <exception-mapping result="errorMsg" exception="java.lang.Exception"></exception-mapping>
+        </global-exception-mappings>
+ -->
+		<!-- <global-exception-mappings>异常类和跳转页面配置
+			<exception-mapping result="error"
+				exception="hust.ioic.oa.utils.BusinessException" />
+		</global-exception-mappings> -->
+
+		<!--新加水司时添加数据源 -->
+		<action name="addNewData_*" class="addDataSourceAction" method="{1}">
+			<interceptor-ref name="addDataSourceInterceptor"></interceptor-ref>
+			<result name="right">/WEB-INF/jsp/addDataSourceAction/right.jsp</result>
+			<result name="fail">/WEB-INF/jsp/deviceAction/fail.jsp</result>
+		</action>
+
+		<!-- 未完成命令 -->
+		<action name="uncompelet_*" class="uncompeletCommandAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/uncompeletAction/list.jsp</result>
+			<result name="toList" type="redirectAction">uncompelet_list</result>
+			<result name="fail">/WEB-INF/jsp/deviceAction/fail.jsp</result>
+		</action>
+
+		<!-- 用户action -->
+		<action name="operator_*" class="operatorAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/operatorAction/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/operatorAction/saveUI.jsp</result>
+			<result name="toList" type="redirectAction">operator_list</result>
+			<result name="logout">/WEB-INF/jsp/operatorAction/logout.jsp</result>
+			<result name="toIndex" type="redirectAction">home_index</result>
+			<result name="setAreaUI">/WEB-INF/jsp/operatorAction/setAreaUI.jsp
+			</result>
+			<result name="changePasswordUI">/WEB-INF/jsp/operatorAction/editPasswordUI.jsp
+			</result>
+			<result name="right">/WEB-INF/jsp/operatorAction/right.jsp
+			</result>
+		</action>
+
+		<!-- 岗位action -->
+		<action name="role_*" class="roleAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/roleAction/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/roleAction/saveUI.jsp</result>
+			<result name="setFunctionUI">/WEB-INF/jsp/roleAction/setFunctionUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">role_list</result>
+		</action>
+
+		<!-- 部门action -->
+		<action name="area_*" class="areaAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/areaAction/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/areaAction/saveUI.jsp</result>
+			<result name="toList" type="redirectAction">area_list</result>
+		</action>
+
+		<!-- 主页跳转action -->
+		<action name="home_*" class="homeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+
+		<action name="deviceType_*" class="deviceTypeAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/deviceTypeAction/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/deviceTypeAction/saveUI.jsp</result>
+			<result name="toList" type="redirectAction">deviceType_list</result>
+		</action>
+
+		<!-- 换表记录 -->
+		<action name="deviceChange_*" class="optDeviceRecordAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/optDeviceAction/list.jsp</result>
+			<result name="addUi">/WEB-INF/jsp/optDeviceAction/addUi.jsp</result>
+			<result name="changeUi">/WEB-INF/jsp/deviceAction/device_change.jsp
+			</result>
+			<result name="toCenterList" type="redirectAction">device_center?centerId=%{centerId}</result>
+			<result name="toCollectionList" type="redirectAction">device_collection?collectionId=%{collectionId}
+			</result>
+			<result name="toList" type="redirectAction">device_list</result>
+			<result name="fail">/WEB-INF/jsp/deviceAction/fail.jsp</result>
+		</action>
+
+
+		<!-- 服务器管理 -->
+		<action name="server_*" class="serverAction" method="{1}">
+			<result name="add">/WEB-INF/jsp/collectionManageAction/serverSaveUi.jsp
+			</result>
+			<result name="toList" type="redirectAction">server_left</result>
+			<result name="edit">/WEB-INF/jsp/collectionManageAction/serverSaveUi.jsp
+			</result>
+			<result name="list">/WEB-INF/jsp/collectionManageAction/list.jsp
+			</result>
+			<result name="left">/WEB-INF/jsp/collectionManageAction/left.jsp
+			</result>
+			<result name="right">/WEB-INF/jsp/collectionManageAction/right.jsp
+			</result>
+		</action>
+		<!-- 端口管理 -->
+		<action name="port_*" class="portAction" method="{1}">
+			<result name="add">/WEB-INF/jsp/collectionManageAction/portSaveUi.jsp
+			</result>
+			<result name="edit">/WEB-INF/jsp/collectionManageAction/portSaveUi.jsp
+			</result>
+			<result name="toList" type="redirectAction">server_left </result>
+
+		</action>
+
+		<!-- 集中器管理 -->
+		<action name="center_*" class="centerAction" method="{1}">
+			<result name="add">/WEB-INF/jsp/deviceAction/centerSaveUi.jsp
+			</result>
+			<result name="edit">/WEB-INF/jsp/deviceAction/centerSaveUi.jsp
+			</result>
+			<result name="tolist" type="redirectAction">device_area?mareaId=%{areaId} </result>
+			<result name="toaddUi" type="redirectAction">center_add</result>
+			<result name="fail">/WEB-INF/jsp/deviceAction/fail.jsp
+			</result>
+		</action>
+
+		<!-- 采集器管理 -->
+
+		<action name="collection_*" class="collectionAction" method="{1}">
+			<result name="add">/WEB-INF/jsp/deviceAction/collectionSaveUi.jsp
+			</result>
+			<result name="edit">/WEB-INF/jsp/deviceAction/collectionEdit.jsp</result>
+			<result name="collection_look">/WEB-INF/jsp/deviceAction/collection_look.jsp</result>
+			<result name="tolist" type="redirectAction">device_center.action?centerId=%{centerId}</result>
+		</action>
+
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="left">/WEB-INF/jsp/userAction/left.jsp</result>
+			<result name="right">/WEB-INF/jsp/userAction/right.jsp</result>
+			<result name="list">/WEB-INF/jsp/userAction/list.jsp</result>
+			<result name="toList" type="redirectAction">user_userList?areaId=%{areaId}</result>
+			<result name="addUi">/WEB-INF/jsp/userAction/addUi.jsp</result>
+			<result name="userList">/WEB-INF/jsp/userAction/userList.jsp</result>
+		</action>
+         <!-- 设备管理 -->
+		<action name="device_*" class="deviceAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/deviceAction/list.jsp</result>
+			<result name="right">/WEB-INF/jsp/deviceAction/right.jsp</result>
+			<result name="saveUi">/WEB-INF/jsp/deviceAction/saveUi.jsp</result>
+			<result name="toList" type="redirectAction">device_list?userid=%{userid}
+			</result>
+			<result name="toCenterList" type="redirectAction">device_center?centerId=%{centerId}</result>
+			<result name="toCollectionList" type="redirectAction">device_collection?collectionId=%{collectionId}
+			</result>
+			<result name="area">/WEB-INF/jsp/deviceAction/area.jsp</result>
+			<result name="add_device">/WEB-INF/jsp/deviceAction/add_device.jsp</result>
+			<result name="edit">/WEB-INF/jsp/deviceAction/saveUi.jsp</result>
+			<result name="dcensaveUi">/WEB-INF/jsp/deviceAction/dcensaveUi.jsp</result>
+				<result name="dcolsaveUi">/WEB-INF/jsp/deviceAction/dcolsaveUi.jsp</result>
+			<result name="fail">/WEB-INF/jsp/deviceAction/fail.jsp</result>	
+			<result name="{1}">/WEB-INF/jsp/deviceAction/{1}.jsp</result>	
+		</action>
+
+		<!-- 大小表管理 -->
+		<action name="deviceM_*" class="deviceSizeAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/deviceSizeAction/bigDeviceList.jsp
+			</result>
+			<result name="toList" type="redirectAction">deviceM_list</result>
+			<result name="addUi">/WEB-INF/jsp/deviceSizeAction/list.jsp
+			</result>
+			<result name="left">/WEB-INF/jsp/deviceSizeAction/left.jsp</result>
+			<result name="right">/WEB-INF/jsp/deviceSizeAction/right.jsp</result>
+			<result name="editUi">/WEB-INF/jsp/deviceSizeAction/editUi.jsp</result>
+			<result name="toSmallList" type="redirectAction">deviceM_smallList?deviceId=%{deviceId}
+			</result>
+
+
+			<result name="bigDeviceList">/WEB-INF/jsp/deviceSizeAction/bigDeviceList.jsp
+			</result>
+			<result name="addSmallUi">/WEB-INF/jsp/deviceSizeAction/addSmallUi.jsp
+			</result>
+			<result name="smallList">/WEB-INF/jsp/deviceSizeAction/smallList.jsp
+			</result>
+			<result name="waste">/WEB-INF/jsp/deviceSizeAction/waste.jsp</result>
+		</action>
+
+		<!-- 监控信息 -->
+		<action name="monitor_*" class="monitorAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/monitorAction/{1}.jsp</result>
+		</action>
+
+
+		
+ <action name="tempCQ_*" class="tempCQAction" method="{1}">
+        <result name="left">/WEB-INF/jsp/tempCQAction/left.jsp</result>
+        <result name="right">/WEB-INF/jsp/tempCQAction/right.jsp</result>
+	    <result name="list">/WEB-INF/jsp/tempCQAction/list.jsp</result>
+	    <result name="centerList">/WEB-INF/jsp/tempCQAction/centerList.jsp</result>
+	    <result name="deviceList">/WEB-INF/jsp/tempCQAction/deviceList.jsp</result>
+	    <result name="commandList">/WEB-INF/jsp/tempCQAction/commandList.jsp</result>
+	    <result name="allcommandList">/WEB-INF/jsp/tempCQAction/allcommandList.jsp</result>
+	     <result name="centerRead">/WEB-INF/jsp/tempCQAction/centerRead.jsp</result>
+    </action>
+   <action name="planCQ_*" class="planCQAction" method="{1}">
+   <result name="plancommandList">/WEB-INF/jsp/planCQAction/plancommandList.jsp</result>
+   </action>
+   
+	<action name="fixedReadSetting_*" class="fixedReadSettingAction"
+			method="{1}">
+			<result name="add">/WEB-INF/jsp/fixedReadSettingAction/schemeSaveUi.jsp
+			</result>
+			<result name="edit">/WEB-INF/jsp/fixedReadSettingAction/schemeSaveUi.jsp
+			</result>
+			<result name="toreadScheme" type="redirectAction">fixedReadSetting_readScheme
+			</result>
+			<result name="tocenter" type="redirectAction">fixedReadSetting_center</result>
+			<result name="{1}">/WEB-INF/jsp/fixedReadSettingAction/{1}.jsp</result>
+
+		</action>
+
+		<!-- 资料导入 -->
+	<action name="datumLoad_*" class="datumLoadAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/datumLoadAction/list.jsp</result>
+            <result name="newuser">/WEB-INF/jsp/datumLoadAction/new.jsp</result>
+             <result name="last">/WEB-INF/jsp/datumLoadAction/last.jsp</result>
+			<result name="fileLoad">/WEB-INF/jsp/datumLoadAction/success.jsp</result>        
+		</action>
+ 	<action name="downLoad" class="hust.ioic.oa.utils.FileDownloadAction">
+    		<param name="inputpath">\excel\data.xls</param>
+    		<result name="success" type="stream">
+    		<param name="contentType">application/vnd.ms-excel</param>
+    		<param name="inputName">targetFile</param>
+    		<param name="contentDisposition">filename="data.xls"</param>
+    			<param name="buffersize">40960</param>
+    		</result>
+    	</action>
+    		<action name="waterExport_*" class="waterExportAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/waterExportAction/list.jsp</result>
+			<result name="right">/WEB-INF/jsp/waterExportAction/right.jsp</result>
+            <result name="deviceTmpList">/WEB-INF/jsp/waterExportAction/deviceTmpList.jsp</result>     
+		</action>
+	</package>
+
+	<!-- <package name="new" namespace="/new"> <action name="newDataSource_*" 
+		class="addDataSourceAction" method="{1}"> <result name="list">/WEB-INF/jsp/addDataSourceAction/list.jsp</result> 
+		<result name="right">/WEB-INF/jsp/addDataSourceAction/right.jsp</result> 
+		</action> </package> -->
+</struts>

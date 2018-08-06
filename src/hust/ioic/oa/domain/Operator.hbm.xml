@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping  package="hust.ioic.oa.domain">
+
+	<class name="Operator" table="t_operator" >
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="username" type="string"/>
+		<property name="gender" type="string"></property>
+		<property name="operatorNo" type="string"/>
+		<property name="password" type="string"/>
+		<property name="telNum" type="string"/>
+		<property name="phoneNum" type="string"/>
+		<property name="address" type="string"/>
+		<property name="beginTime" type="timestamp"/>
+		<property name="endTime" type="timestamp"/>
+		<property name="gropuID" type="integer"/>
+		<property name="status" type="integer"/>
+		<property name="enprNo" type="string"/>
+		<!-- role属性，表示本类与Role的多对一关系 -->
+		<many-to-one name="role" class="Role" column="roleId" lazy="false"></many-to-one>
+		
+		<!-- areas属性，表示本类与Area的多对多关系 -->
+		<set name="areas" table="t_operator_area" lazy="false">
+			<key column="operatorId"></key>
+			<many-to-many class="Area" column="areaId"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

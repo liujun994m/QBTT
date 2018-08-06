@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="hust.ioic.oa.domain">
+
+	<class name="Enterprise" table="t_enterprise">
+		<id name="id" >
+            <generator class="native"/>
+		</id>
+		<property  name="name"/>		
+		<property  name="enprNo"/>
+		<property  name="userCount"/>
+		<property  name="telNum"/>
+		<property  name="phoneNum"/>
+		<property  name="address"/>
+		<property  name="linkman"/>
+		<property  name="enprType"/>
+		<property  name="logoFile"/>
+		<property  name="databaseName"/>
+		<property  name="url"/>
+		<property  name="userName"/>
+		<property  name="passWord"/>
+		<property  name="fileLoadStatus"/>
+		
+		<!-- ports属性，表示本类和ports类之间的多对多关系 -->
+		<set name="ports" table="t_enterprise_port">
+			<key column="enterpriseId"></key>
+			<many-to-many class="Port" column="portId"></many-to-many>
+		</set>
+		
+	
+	</class>
+</hibernate-mapping>

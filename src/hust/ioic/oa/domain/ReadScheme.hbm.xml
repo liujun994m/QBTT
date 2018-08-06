@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="hust.ioic.oa.domain">
+
+	<class name="ReadScheme" table="t_readScheme">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property  name="schemeID" />
+		<property  name="schemeName" />
+		<property  name="beginDay" />
+		<property  name="dayInterval" />
+
+		<property  name="readDayNum" />
+		<property  name="readInMonthEnd" />
+
+		<property  name="beginTime" />
+		<property  name="dayReadNum" />
+
+		<property  name="hourInterval" />
+		<property  name="isReadOnScheme" />
+
+
+		<property  name="retryNum" />
+		<property  name="reTryInterval" />
+
+		<property  name="otherValue" />
+		<property  name="remark" />
+		<property name="timerType" />
+        <property  name="enprNo"/>
+	</class>
+</hibernate-mapping>

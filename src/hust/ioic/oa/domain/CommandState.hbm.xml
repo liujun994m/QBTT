@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="hust.ioic.oa.domain">
+
+	<class name="CommandState" table="t_commandState">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property  name="ip"/>		
+		<property  name="command"/>
+		<property  name="Operator"/>
+		<property  name="GenerateTime"/>
+		<property  name="ExecuteTime"/>
+		<property  name="protocalTYpe"/>
+		<property  name="ContentValue1"/>
+		<property  name="ContentValue2"/>
+		<property  name="ContentValue3"/>
+		<property  name="ContentValue4"/>
+		<property  name="ContentValue5"/>
+		<property  name="ContentValue6"/>
+		<property  name="ContentValue7"/>
+		<property  name="ContentValue8"/>
+		<property  name="ContentValue9"/>
+		<property  name="ContentValue10"/>
+		<property  name="State"/>
+		<property name="enprNo" ></property>
+	</class>
+</hibernate-mapping>

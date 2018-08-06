@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hust.ioic.oa.domain">
+
+	<class name="Server" table="t_server">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<property name="lastLoginTime" type="timestamp" />
+		<property name="runStatus" type="int"></property>
+		<property name="overtime" type="int"></property>
+		<property name="localIp"></property>
+		
+
+		<!-- 服务器对于多个端口，server与port是一对多的关系 -->
+		<!--cascade="delete" 级联删除，当删除role时，删除相应操作员（需要操作员外键roleId允许空）-->
+		<!-- inverse="true" 关联关系由对方维持，当更新role属性时，页面上操作员相应属性改变  -->
+
+		 <set name="ports"  lazy="false" cascade="delete" inverse="true">
+			<key column="severId"></key>
+			<one-to-many class="Port"/>
+		</set>
+
+	</class>
+</hibernate-mapping>

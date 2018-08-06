@@ -1,0 +1,60 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.timeout">120</property>
+		<property name="automaticTestTable">Test</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.idle_test_period">120</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="c3p0.testConnectionOnCheckout">true</property>
+		<property name="c3p0.idleConnectionTestPeriod">18000</property>
+		<property name="c3p0.maxIdleTime">25000</property>
+		<property name="c3p0.idle_test_period">120</property>
+		<property name="dialect">
+			org.hibernate.dialect.SQLServerDialect
+		</property>
+		<property name="connection.url">jdbc:sqlserver://115.156.179.111:1433;DatabaseName=Qmeterdb</property>
+		<property name="connection.username">sa</property>
+		<property name="connection.password">123456</property>
+		<property name="connection.driver_class">
+			com.microsoft.sqlserver.jdbc.SQLServerDriver
+		</property>
+
+
+		<!-- Hibernate基本配置 -->
+		<property name="show_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		
+   
+
+		<!-- 实体映射文件 -->
+		<mapping resource="hust/ioic/oa/domain/Role.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Area.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Operator.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Function.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/DeviceType.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Center.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Collection.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Device.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/DeviceRelation.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/OptDeviceRecord.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/ReadScheme.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/UncompeletCommandQueue.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/BaseNumber.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Server.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Port.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Enterprise.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/PlanCommandQueue.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/TempCommandQueue.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/CollectionLog.hbm.xml" />
+		<mapping resource="hust/ioic/oa/domain/Log.hbm.xml" />
+	</session-factory>
+
+</hibernate-configuration>
+

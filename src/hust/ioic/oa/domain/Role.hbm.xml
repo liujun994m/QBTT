@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping  package="hust.ioic.oa.domain">
+
+	<class name="Role" table="t_role">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="name"/>
+		<property name="description"/>
+		<property  name="enprNo"/>
+		<!-- functions属性，表示本类与Function的多对多关系 -->
+		<set name="functions" table="t_role_function" lazy="false">
+			<key column="roleId"></key>
+			<many-to-many class="Function" column="functionId"></many-to-many>
+		</set>
+		
+		<!-- operators属性，表示本类与Operator的一对多关系 -->
+		<!--cascade="delete" 级联删除，当删除role时，删除相应操作员（需要操作员外键roleId允许空）-->
+		<!-- inverse="true" 关联关系由对方维持，当更新role属性时，页面上操作员相应属性改变  -->
+		<set name="operators" lazy="false" cascade="delete" inverse="true" >
+			<key column="roleId"></key>
+			<one-to-many class="Operator"/>
+		</set>
+
+	</class>
+</hibernate-mapping>

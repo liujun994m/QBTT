@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="hust.ioic.oa.domain">
+	<class name="Device" table="t_device">
+		<id name="id" >
+            <generator class="native"/>
+		</id>
+		<property name="name"/>
+		<property name="addr" column="iAddr"/>
+		<property name="deviceNo"/>
+		<property name="uplinkType" type="integer"></property>	
+		<property name="readTime"/>
+		<property name="MaxNum"/>
+		<property name="CeValue"/>
+		<property name="OldValue"/>
+		<property name="imultiple" column="iMultiple"/>
+		<property name="ShowValue"/>
+		<property name="runStatue"/>
+		<property name="needAlarm"/>
+		<property name="alarmGetType"/>
+		<property name="alarmMax"/>
+		<property name="alarmMin"/>
+		<property name="nowStatue"/>
+		<property name="deviceStatue"/>
+		<property name="commStatue"/>
+		<property name="StrobeStatue"/>
+		<property name="AlarmDate"/>
+       <property name="userNo"/>
+		<property name="status"/>
+		<property name="CardID"/>
+		<property name="ceType"/>
+		<property name="createDate"/>
+		<property name="setupDate"/>
+		<property name="StopUse"/>
+		<property name="ShowX"/>
+		<property name="ShowY"/>
+		<property name="ShowType"/>
+		<property name="PageGoNo"/>
+		<property name="PicFileName"/>
+		<property name="StrobeDate"/>
+		<property name="strobeExecute"/>
+		<property name="LogicNo"/>
+		<property name="allowOper"/>
+		<property name="manualOpen"/>
+		<property name="testMonth"/>
+		<property name="testState"/>
+		<property name="PrShowValue"/>
+		<property name="PrCeDate"/>
+		<property name="MonthCount"/>
+		<property name="StopType"/>
+		<property name="ErrData"/>
+		<property name="ErrDate"/>
+		<property name="GetMoneyType"/>
+		<property name="PrSaveValue"/>
+		<property name="PrSaveDate"/>
+		<property name="BigDeviceFlag"/>
+		<property name="UserCountType"/>
+		<property name="isMemBer"/>
+	    <property name="enprNo"/>
+	    <property name="userName"/>
+	    <property name="userAddr"/>
+	    <property name="areaId"/>
+	 	<!-- parent属性,表示本类与Device上级的多对一关系 -->
+	 	<many-to-one name="parent" class="Device" column="parentId"></many-to-one> 
+		<!-- children属性，表示本类与c(下级)的一对多关系 -->
+		<set name="children" sort="unsorted" >
+			<key column="parentId"></key>
+			<one-to-many class="Device"/>
+		</set> 
+		<one-to-one name="deviceRelation"   class="DeviceRelation" property-ref="device"></one-to-one> 
+	   	<!-- <many-to-one name="deviceRelation" class="DeviceRelation"  not-null="true"  unique="true" column="deviceRelationId"/> -->
+	   	<!-- deviceType属性，本类与DeviceType类的多对一关系 -->
+	   	<many-to-one name="deviceType" class="DeviceType" column="deviceTypeID" lazy="false"></many-to-one>
+	   
+	</class>
+</hibernate-mapping>

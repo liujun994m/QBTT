@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="hust.ioic.oa.domain">
+
+	<class name="PlanCommandQueue" table="t_planCommandQueue">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property  name="ip"/>		
+		<property  name="command"/>
+		<property  name="Operator"/>
+		<property  name="GenerateTime"/>
+		<property  name="ExecuteTime"/>
+		<property  name="commandType"/>
+		<property  name="protocolType"/>
+		<property  name="ContentValue1"/>
+		<property  name="ContentValue2"/>
+		<property  name="ContentValue3"/>
+		<property  name="ContentValue4"/>
+		<property  name="ContentValue5"/>
+		<property  name="ContentValue6"/>
+		<property  name="ContentValue7"/>
+		<property  name="ContentValue8"/>
+		<property  name="ContentValue9"/>
+		<property  name="ContentValue10"/>
+		<property  name="State"/>
+		<property  name="enprNo" ></property>	
+		<property  name="scheduleState"/>
+		<property  name="planExecuteTime"/>
+		<property  name="retryIntervalTime"/>
+		<property  name="retryTimes"/>
+		<property  name="startExeTime"/>
+		<property  name="endExeTime"/>
+		<property  name="retriedTime"/>
+		<property  name="isLinkedLastCmd"/>
+		<property  name="commandSource"/>
+		 <!-- 计划队列和企业表一对一外键关联，该类通过enteprise外键关联企业表 -->
+		<!--<one-to-one name="enterprise" class="Enterprise"  lazy="false"  cascade="all"></one-to-one> -->
+	</class>
+</hibernate-mapping>

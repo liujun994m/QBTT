@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping  package="hust.ioic.oa.domain">
+
+	<class name="DeviceRelation" table="t_deviceRelation">
+		<id name="id" >
+            <generator class="native"/>
+		</id>
+		<property name="centerId" type="integer" />
+		<property name="collectionId" type="integer" />
+		<property name="centerDownInterface" type="integer" />
+		<property name="collectionDownInterface" type="integer" />
+		<property name="enprNo"  type="string"/>
+		<!-- 表示本类与device的一对一关系 -->
+		<!--<one-to-one name="device"   class="Device" property-ref="deviceRelation"></one-to-one>  -->
+		<many-to-one name="device" class="Device"  not-null="true"  unique="true" column="deviceId"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="hust.ioic.oa.domain">
+
+	<class name="CollectionLog" table="t_collectionLog">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property  name="command"/>		
+		<property  name="LogType" />
+		<property  name="commandType"/>		
+		<property  name="CenterNo" />
+		<property  name="CommandGernrateTime"/>		
+		<property  name="LogGenerateTime" />
+		<property  name="detail" />
+        <property name="enprNo"/>
+	</class>
+</hibernate-mapping>

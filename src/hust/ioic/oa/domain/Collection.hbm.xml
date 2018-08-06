@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hust.ioic.oa.domain">
+
+	<class name="Collection" table="t_collection">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" type="string" />
+		<property  name="enprNo" type="string"/>
+		<property name="address" type="string"></property>
+		<property name="readTime" type="timestamp"></property>
+		<property name="readCount" type="integer"></property>
+		<property name="readType" type="integer"></property>
+		<property name="runStatue" type="integer"></property>
+		<property name="isUse" type="integer"></property>
+		<property name="remark" type="string"></property>
+		<!-- 采集器与集中器是多对一的关系，collection与center对应为多对一 -->
+		<property name="uplinkType" type="integer"></property>
+		<many-to-one name="center" column="centerId" class="Center" lazy="false"></many-to-one>
+		
+	</class>
+</hibernate-mapping>

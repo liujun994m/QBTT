@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hust.ioic.oa.domain">
+	<class name="Center" table="t_center">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<property name="protocolType" type="integer" />
+		<property name="gprsNum" type="string"></property>
+		<property name="readTime" type="timestamp"></property>
+		<property name="readPeriod" type="integer"></property>
+		<property name="readType" type="integer"></property>
+		<property name="runStatue" type="integer"></property>
+		<property name="isUse" type="integer"></property>
+		<property name="config" type="string"></property>
+		<property name="remark" type="string"></property>
+		<property name="modem" type="string"></property>
+		<property name="uplinkType" type="integer"></property>
+		<property name="enprNo" type="string"></property>
+		<property name="readSchemeId" type="integer"></property>
+		<!-- <property name="portId" type="integer"></property> -->
+		<property name="isAutoCollection" type="integer"></property>
+		<property name="installAddr" type="string"></property>
+		
+		
+		<!-- 集中器与端口的关系为多对一，center与port的关系为多对一 -->
+		 <many-to-one name="port" column="portId" class="Port" lazy="false"></many-to-one>
+
+        <many-to-one name="Area" column="areaId" class="Area" lazy="false"></many-to-one>
+		<!-- 集中器与采集器额关系为一对多，center与collection的关系为一对多 -->
+		<set name="collections" table="t_collection" lazy="false" cascade="delete"
+			inverse="true">
+			<key column="centerId"></key>
+			<one-to-many class="Collection" />
+		</set>
+		<!-- <set name="deviceRelations" lazy="false" cascade="delete" inverse="true"> 
+			<key column="centerId"></key> <one-to-many class="DeviceRelation" /> </set> -->
+	</class>
+</hibernate-mapping>

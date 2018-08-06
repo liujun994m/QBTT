@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="hust.ioic.oa.domain">
+
+	<class name="Area" table="t_area">
+		<id name="id">
+     	   <generator class="native"/> 
+		</id>
+		<property  name="name" type="string"/>		
+		<property  name="remark" type="string"/>
+		<property  name="enprNo" type="string"/>
+		<!-- parent属性，表示本类与Area（上级）的多对一关系 -->
+		<many-to-one name="parent" class="Area" column="parentId"></many-to-one>
+		
+		<!-- children属性，表示本类与c（下级）的一对多关系 -->
+		<set name="children" sort="unsorted">
+			<key column="parentId"></key>
+			<one-to-many class="Area"/>
+		</set>
+		
+		<!-- operators属性，表示本类与Operator的多对多关系 -->
+		<set name="operators" table="t_operator_area">
+			<key column="areaId"></key>
+			<many-to-many class="Operator" column="operatorId"></many-to-many>
+		</set>
+		
+		
+		<set name="centers"  cascade="delete" inverse="true">
+			<key column="areaId"></key>
+			<one-to-many class="Center" />
+		</set>
+	</class>
+</hibernate-mapping>

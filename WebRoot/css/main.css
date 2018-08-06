@@ -1,0 +1,510 @@
+body {
+	background: #F3FCFD;
+}
+
+#container {
+	color: #000;
+	width: 100%;
+	/*	padding-top: 10px;
+	padding-left: 3%;
+	padding-right: 7%;*/
+	font-family: "Microsoft YaHei", Arial, Helvetica, "SimSun", sans-serif;
+}
+
+#container input[type="radio"] {
+	width: 20px;
+}
+
+#container table {
+	margin-left: 10%;
+	width: 80%;
+	margin-top: 15px
+}
+
+#container2 {
+	width: 97%;
+	padding-top: 10px;
+	padding-left: 2%;
+	padding-right: 1%;
+	font-family: "Microsoft YaHei", Arial, Helvetica, "SimSun", sans-serif;
+}
+
+#container3 {
+	width: 100%;
+	color: #000;
+	font-family: "Microsoft YaHei", Arial, Helvetica, "SimSun", sans-serif;
+}
+
+.top1 {
+	/*	width:100%;*/
+	height: 50px;
+	padding: 8px;
+	background-color: #ACD2D8;
+}
+
+.btn-group:first-child {
+	margin-right: 16px;
+}
+
+.btn-group {
+	font-size: 13px;
+}
+
+.input-group-addon {
+	font-size: 13px;
+}
+
+.Description {
+	position: absolute;
+	left: 60%;
+	top: 20%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	/*font-size: 110%;*/
+	font-weight: bold;
+}
+
+.Title_bar span:first-child {
+	font-size: 30px;
+}
+
+.title2 {
+	/*width: 100%;*/
+	background: #C7E0F0;
+	font-size: 15px;
+	padding-left: 10px;
+	font-weight: bold;
+	color: #313432;
+}
+
+.Title_bar a {
+	padding-left: 5px;
+	padding-right: 15px;
+	color: #2056DE;
+}
+
+.tree {
+	cursor: pointer;
+}
+
+.tree .tree1 {
+	font-size: 14px;
+	font-weight: normal;
+	width: 400px;
+	padding: 10px;
+	color: #191919;
+}
+
+.tree .tree2 {
+	font-size: 16px;
+	padding: 5px;
+	margin-top: 4%;
+	margin-left: 8%;
+	margin-right: 8%;
+	border: 1px solid #B2C3C0;
+}
+.tree .tree3 {
+	font-size: 16px;
+	padding: 5px;
+
+}
+.tree .tree2 a {
+	color: #3D45F9;
+	font-size: 14px;
+}
+
+.tree div {
+	display: inline;
+}
+
+.tree div input {
+	margin-top: 20px;
+}
+
+.center {
+	text-align: center;
+}
+
+.center thead tr th {
+	text-align: center;
+	background-color: #E3F0FC;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ .table-roleList{
+
+	width: 100%;
+
+}
+
+.table-roleList th,.table-roleList td {
+	padding: 0 3px 0 3px;
+	border: 1px solid #ddd;
+	font-size: 13px;
+	height: 30px;
+}
+
+.table-roleList>tbody>tr:nth-child(even)>td,.table-roleList>tbody>tr:nth-child(even)>th
+	{
+	background-color: #E3F0FC;
+}
+
+.table-roleList>tbody>tr:hover>td,.table-roleList>tbody>tr:hover>th {
+	background-color: #C7E0F0;
+}
+
+tfoot tr a {
+	width: 60px;
+	height: 40px;
+	border: 1px solid #FFFFFF;
+}
+
+.table-edit {
+	width: 60%;
+/* 	margin:20%; */
+	/*height: 100px;*/
+	font-size: 17px;
+	/*border: 1px solid #1A6EEB;*/
+}
+
+.table-edit td {
+	padding: 10px;
+}
+
+.table-edit tbody tr td:first-child {
+	width: 20%;
+	padding-left: 30px;
+}
+
+
+.table-edit tbody tr input,.table-edit tbody tr select {
+	width: 80%;
+	height: 25px;
+
+}
+
+
+
+.table-edit tbody tr textarea {
+	width: 80%;
+	height: 80px;
+	overflow-y: auto;
+}
+
+.table-edit tfoot,.table-editUI tfoot {
+	text-align: center;
+}
+
+.table-edit tfoot tr input {
+	width: 20%;
+}
+
+.table-editUI {
+	width: 600px;
+	font-size: 15px;
+	padding: 10px;
+	margin-top: 15px;
+}
+
+.table-editUI select {
+	width: 300px;
+}
+
+.table-editUI tbody td {
+	padding: 5px;
+}
+
+.table-editUI tbody textarea,.table-editUI tbody input[type="text"] {
+	width: 300px;
+}
+
+thead,table tbody tr:nth-child(2) td:first-child,table tbody tr:first-child
+	{
+	white-space: nowrap;
+}
+
+.table-search {
+	width: 800px;
+}
+
+.tree .big {
+	font-size: 13px;
+	background-color: #F3FCFD;
+}
+
+.tree .small {
+	font-size: 10px;
+}
+
+.head_button input {
+	width: 65px;
+	/*height: 30px;*/
+	font-size: 15px;
+	background: #516EEE;
+	color: #fff;
+}
+
+.monitor {
+	width: 100%;
+	background-color: #ACD2D8;
+}
+
+.Title_bar {
+	height: 50px;
+	line-height: 50px;
+	width: 98%;
+	font-size: 15px;
+	/*padding-top: 10px;*/
+	padding-left: 2%;
+	color: #21273A;
+	background-color: #ACD2D8;
+	border-bottom: 1px solid #A7A4A4;
+}
+
+.state {
+	height: 50px;
+	list-style: none;
+
+	/*	float: left;*/
+}
+
+.state li {
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	padding: 5px 5px 5px 5px;
+	font-size: 15px;
+}
+
+.state li a {
+	margin-right: 10px;
+	/*	border-right: 1px solid #676666;*/
+	color: #051B32;
+}
+
+.active {
+	color: #2761C6;
+	font-size: 120%;
+}
+
+.active1 {
+	font-size: 102%;
+	font-weight: bold;
+	background: #BCE8F9;
+}
+
+.active2 {
+	color: #2761C6;
+	font-size: 109%;
+	font-weight: bold;
+	background: #BCE8F9;
+}
+
+table {
+	overflow: scroll;
+}
+
+table a {
+	color: #3475F2;
+}
+
+input[type="reset"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner,input[type="submit"]::-moz-focus-inner,input[type="file"]>input[type="button"]::-moz-focus-inner
+	{
+	border: none;
+	padding: 0;
+}
+
+tfoot tr {
+	height: 50px;
+}
+
+/*掳麓脜楼脩霉脢陆*/
+tfoot tr input {
+	font-family: inherit;
+	width: 150px;
+	height: 35px;
+}
+
+.state input::after,tfoot tr input::after {
+	content: attr(data-text);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	color: #3f51b5;
+	-webkit-transform: translate3d(0, 25%, 0);
+	transform: translate3d(0, 25%, 0);
+}
+
+.state input::after,tfoot tr input::after {
+	padding: 1em 2em;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.state input:hover,tfoot tr input:hover {
+	border: 1px solid #3f51b5;
+	background-color: rgba(63, 81, 181, 0.1);
+}
+
+.state input[type="text"]:hover,tfoot tr input[type="text"]:hover {
+	border: 1px solid #3f51b5;
+	background-color: #FFFFFF;
+}
+
+.state input:hover::after,tfoot tr input:hover::after {
+	opacity: 1;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.state input {
+	font-family: inherit;
+	padding: 0 5px 0 5px;
+	height: 30px;
+	font-size: 13px;
+}
+
+.state input:disabled {
+	border: 1px solid #DDD;
+	background-color: #F5F5F5;
+	color: #ACA899;
+}
+
+.top_head .state input[type="text"] {
+	width: 14%;
+}
+
+.top_head .state input[type="button"] {
+	width: 14%;
+}
+
+.set {
+	width: 40%;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.set td {
+	border: 0;
+}
+
+.set input {
+	height: 30px;
+}
+
+.set_time {
+	padding: 0;
+	margin: 0;
+}
+
+.toggle_bar {
+	cursor: pointer;
+}
+
+/*操作说明*/
+.describe {
+	font-size: 15px;
+	margin-top: 20px;
+	margin-left: 10%;
+	width: 80%;
+}
+
+.describe_title {
+	font-size: 25px;
+	padding-bottom: 10px;
+}
+
+.describe img {
+	padding: 10px 0 10px 0;
+	width: 100%;
+}
+
+.operate_describe  h1 {
+	font-size: 30px;
+	text-align: center;
+}
+
+.des1 {
+	margin: 60px auto;
+	width: 1200px;
+	border: 1px dashed #DB94FC;
+	padding: 3%;
+}
+
+.des2 {
+	margin: 2% 10% 2% 10%;
+	width: 80%;
+	font-size: 16px;
+	padding: 3% 1% 3% 1%;
+}
+
+.des_tbody td {
+	font-size: 17px;
+}
+
+.btn_addPic {
+	display: block;
+	position: relative;
+	width: 70%;
+	height: 39px;
+	overflow: hidden;
+	border: 1px solid #EBEBEB;
+	background: none repeat scroll 0 0 #F3F3F3;
+	color: #999999;
+	cursor: pointer;
+	text-align: center;
+}
+
+#txt {
+	height: 29px;
+}
+
+.btn_addPic span {
+	display: block;
+	line-height: 39px;
+}
+
+.btn_addPic:hover {
+	background: #28C9EA;
+	color: #FFFFFF;
+}
+
+.filePrew {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 140px;
+	height: 39px;
+	font-size: 100px; /* 增大不同浏览器的可点击区域 */
+	opacity: 0; /* 实现的关键点 */
+	filter: alpha(opacity = 0); /* 兼容IE */
+}
+
+.dyg{
+padding-left:200px;
+}
+
+
+.border1 {
+	margin-top: 4%;
+	margin-left: 8%;
+	margin-right: 8%;
+	border: 1px solid #B2C3C0;
+}
+

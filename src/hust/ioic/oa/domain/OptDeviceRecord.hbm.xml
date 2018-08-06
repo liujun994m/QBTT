@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="hust.ioic.oa.domain">
+
+	<class name="OptDeviceRecord" table="t_optDeviceRecord">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="centerId"/>		
+		<property  name="collectionId"/>
+		<property  name="deviceId"/>
+		<property  name="deviceNo"/>
+		<property  name="deviceName"/>
+		<property  name="operateDate"/>
+		<property  name="operateMan"/>
+		<property  name="oldReadData"/>
+		<property  name="newReadData"/>
+		<property  name="oldDeviceNo"/>
+		<property  name="newDeviceNo"/>
+		<property  name="oldDevID"/>
+		<property  name="newDevID"/>
+		<property  name="userMoney"/>
+		<property  name="userCount"/>
+		<property  name="sumMoney"/>
+		<property  name="remark"/>
+		<property  name="flag"/>
+		<property  name="enprNo"/>
+		<property  name="userNo"/>
+		<!-- user属性，表示本类与User（上级）的多对一关系 -->
+		
+		
+	</class>
+</hibernate-mapping>

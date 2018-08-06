@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping  package="hust.ioic.oa.domain">
+
+	<class name="Function" table="t_function">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="name" type="string"/>
+		<property name="url" type="string"/>
+		
+		
+		<!-- parent属性，表示本类与Function（上级）的多对一关系 -->
+		<many-to-one name="parent" class="Function" column="parentId"></many-to-one>
+		
+		<!-- children属性，表示本类与Function（下级）的一对多关系 -->
+		<set name="children" lazy="false">
+			<key column="parentId"></key>
+			<one-to-many class="Function"/>
+		</set>
+		
+		<!-- roles属性，表示本类与Role的多对多关系 -->
+		<set name="roles" table="t_role_function">
+			<key column="functionId"></key>
+			<many-to-many class="Role" column="roleId"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

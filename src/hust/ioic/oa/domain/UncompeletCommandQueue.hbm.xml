@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="hust.ioic.oa.domain">
+
+	<class name="UncompeletCommandQueue" table="t_uncompeletCommandQueue">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property  name="command" />
+		<property  name="Operator" />
+		<property  name="GenerateTime" />
+		<property  name="ExecuteTime" />
+		<property  name="protocalTYpe" />
+		<property  name="ContentValue1" />
+		<property  name="ContentValue2" />
+		<property  name="ContentValue3" />
+		<property  name="ContentValue4" />
+		<property  name="ContentValue5" />
+		<property  name="ContentValue6" />
+		<property  name="ContentValue7" />
+		<property  name="ContentValue8" />
+		<property  name="ContentValue9" />
+		<property  name="ContentValue10" />
+		<property  name="State" />
+		<property  name="enprNo"/>
+		<property  name="retryIntervalTime" />
+		<property  name="retryTimes" />
+		<property  name="startExeTime" />
+		<property  name="endExeTime" />
+		<property  name="port" />
+		<property  name="ip" />
+		<property  name="isLinkedLastCmd" />
+		<property  name="hashCode" />
+		<property  name="jsonofobj" type="text"/>
+	</class>
+</hibernate-mapping>

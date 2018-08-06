@@ -1,0 +1,60 @@
+body{
+	background: #A9CCF8;
+	font-family:"Microsoft YaHei","SimSun",sans-serif; 
+}
+
+div.sdmenu {
+	font-size: 12px;
+	width: 230px;
+	color: #fff;
+
+}
+
+.Title_bar,div.sdmenu div span {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	text-indent: 2px;
+	letter-spacing: 2px;
+	cursor: pointer;
+	color: #333333;
+	font-size:16px;
+	font-weight: bold;
+	border: 1px solid #A1DFF9;
+	background: #A9CCF8;
+}
+
+div.sdmenu div a {
+	line-height: 40px;
+	text-indent: 20px;
+	font-size:14px;
+	display: block;
+	color: #066;
+	text-decoration: none;
+}
+div.sdmenu div a:hover {
+	background: #A4EFFA;
+}
+
+.menu{
+	background: #81A3D9;
+	color: #FFFFFF;
+	font-size: 20px;
+	/*text-align: center;*/
+	border-bottom: 2px solid #CCCCCC;
+	cursor:pointer;
+	height: 50px;
+	line-height: 50px;
+	text-indent: 4px;
+}
+.menu:hover{
+	color:#363836;
+}
+.show_detail{
+	display: none;
+	background: #DFFDF7;
+}
+.active{
+	background: #62CDE3;
+	color:#FFFFFF;
+}
